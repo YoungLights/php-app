@@ -1,10 +1,6 @@
 <?php
 
 use Lights\Core\Database;
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
-use RedAnt\TwigComponents\Registry as ComponentsRegistry;
-use RedAnt\TwigComponents\Extension as ComponentsExtension;
 
 // DUMP & DIE
 function dd($value) {
@@ -24,23 +20,13 @@ function getYear() {
 // LOAD VIEWS
 function view($view, $data = []) {
 	extract($data);
-	$loader = new FilesystemLoader(dirname(__DIR__) . '/views'); 
-	$loader->addPath(dirname(__DIR__) . '/views/components');
-	$twig = new Environment($loader);
-
-	$componentsRegistry = new ComponentsRegistry($twig);
 
 	$components = require 'components.php';
-	// dd($components);
 	foreach($components as $name => $path) {
-		$componentsRegistry->addComponent($name, $path);
-		// dd($path);
+
 	}
 	
-	$componentsExtension = new ComponentsExtension($componentsRegistry);
-	$twig->addExtension($componentsExtension);
-	
-	echo $twig->render($view . ".html", $data);
+	include APP_ROOT . '/views/' . $view . '.php';
 }
 
 // DATABASE

@@ -26,7 +26,7 @@ class PagesController
 			'title' => 'Hey this is an UPDATE',
 			'body' => 'Lorem bla blu blii yeehhaahh nice'
 		];	
-		update('articles', $data, 76);
+		destroy('articles', 12);
 		view('insert');
 	}
 }
