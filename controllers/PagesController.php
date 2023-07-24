@@ -20,6 +20,11 @@ class PagesController
 		view('buhu', ['name' => $name]);
 	}
 
+	public function redirect()
+	{
+		redirect('', ['title' => 'hello World']);
+	}
+
 	public function insert()
 	{
 		$data = [

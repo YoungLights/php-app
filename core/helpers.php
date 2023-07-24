@@ -10,6 +10,23 @@ function dd($value) {
 	die();
 }
 
+// REDIRECT
+function redirect($path = '', $data = []) {
+	foreach($data as $item => $value) {
+		$_SESSION[$item] = $value;
+	}
+	header("Location: " . ROOT . $path);
+	exit();
+}
+
+// SESSION
+function session($name) {
+	if(isset($_SESSION[$name])) {
+		echo $_SESSION[$name];
+		unset ($_SESSION[$name]);
+	}
+}
+
 // TIMESTAMP
 function getYear() {
 	$timestamp = time();
