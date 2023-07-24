@@ -1,0 +1,12 @@
+{
+    "autoload": {
+		"psr-4": {
+			"Lights\\" : "./"
+		}
+	},
+    "require": {
+        "vlucas/phpdotenv": "^5.5",
+        "twig/twig": "3.6.1",
+        "redant/twig-components": "^1.0"
+    }
+}

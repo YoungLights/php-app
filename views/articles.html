@@ -1,0 +1,9 @@
+<h1>This is my blog</h1>
+
+{% for article in articles %}
+	<div>
+		<h4>Articl: {{article.id}}</h4>
+		{{article.title}}
+	</div>
+{% endfor %}
+
