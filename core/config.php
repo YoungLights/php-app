@@ -6,6 +6,11 @@ define ('ADMIN_ROOT', ROOT.'admin/');
 define ('ASSETS_ROOT', ROOT.'assets/');
 define ('APP_ROOT' , dirname(dirname(__FILE__)));
 
+// GLOBALS
+$globals = [
+	'LAYOUT' => 'default'
+];
+
 // DETAILS FOR FILE SIZE
 define('BYTE', 1);
 define('KB', 1024*BYTE);

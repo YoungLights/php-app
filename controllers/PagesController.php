@@ -15,9 +15,9 @@ class PagesController
 		view('articles', ['articles'  => $articles]);
 	}
 
-	public function herz($name)
+	public function herz()
 	{
-		view('buhu', ['name' => $name]);
+		view('buhu', ['name' => 'Catherine']);
 	}
 
 	public function redirect()

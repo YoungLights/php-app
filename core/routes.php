@@ -1,5 +1,6 @@
 <?php
 
+use Lights\Controllers\AdminController;
 use Lights\Controllers\PagesController;
 
 get('/', 'index');
@@ -8,6 +9,8 @@ get('/articles', [new PagesController, 'show']);
 get('/insert', [new PagesController, 'insert']);
 get('/redirect', [new PagesController, 'redirect']);
 
-get('/mon-coeur/$name', [new PagesController, 'herz']);
+get('/mon-coeur', [new PagesController, 'herz']);
+
+get('/admin', [new AdminController, 'index'], true);
 
 any('/404','404');

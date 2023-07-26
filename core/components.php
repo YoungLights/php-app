@@ -1,6 +1,6 @@
 <?php
 
-return [
-	'btn' => 'btn.html',
-	'input' => 'input.html'
+$components = [
+	'btn' => 'btn.php',
+	'input' => 'input.php'
 ];

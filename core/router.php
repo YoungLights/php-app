@@ -1,23 +1,31 @@
 <?php
 
 // GET
-function get($route, $path_to_include){if ($_SERVER['REQUEST_METHOD'] == 'GET') {route($route, $path_to_include);}}
+function get($route, $path_to_include, $auth = false){if ($_SERVER['REQUEST_METHOD'] == 'GET') {route($route, $path_to_include, $auth);}}
 
 // POST
-function post($route, $path_to_include){if ($_SERVER['REQUEST_METHOD'] == 'POST') {route($route, $path_to_include);}}
+function post($route, $path_to_include, $auth = false){if ($_SERVER['REQUEST_METHOD'] == 'POST') {route($route, $path_to_include, $auth);}}
 
 // PUT
-function put($route, $path_to_include){if ($_SERVER['REQUEST_METHOD'] == 'PUT') {route($route, $path_to_include);}}
+function put($route, $path_to_include, $auth = false){if ($_SERVER['REQUEST_METHOD'] == 'PUT') {route($route, $path_to_include, $auth);}}
 
 // DELETE
-function delete($route, $path_to_include){if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {route($route, $path_to_include);}}
+function delete($route, $path_to_include, $auth = false){if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {route($route, $path_to_include, $auth);}}
 
 // ANY ROUTE
-function any($route, $path_to_include){route($route, $path_to_include);}
+function any($route, $path_to_include, $auth = false){route($route, $path_to_include, $auth);}
 
 // ROUTER CORE
-function route($route, $path_to_include) {
+function route($route, $path_to_include, $auth) {
 	$callback = $path_to_include;
+
+	if($auth) {
+		if(isset($_SESSION['admin'])) {
+			dd('yes');
+		} else {
+			dd('not allowed');
+		}
+	}
 
 	if (!is_callable($callback)) {
 		if (!strpos($path_to_include, '.html')) {
@@ -26,8 +34,6 @@ function route($route, $path_to_include) {
 	}
 
 	if ($route == "/404") {
-		// include_once APP_ROOT . "/$path_to_include";
-		// dd($path_to_include);
 		view($path_to_include);
 		exit();
 	}
@@ -45,7 +51,6 @@ function route($route, $path_to_include) {
 			call_user_func_array($callback, []);
 			exit();
 		}
-		// include_once APP_ROOT. "/$path_to_include";
 		view($path_to_include);
 		exit();
 	}
@@ -72,7 +77,6 @@ function route($route, $path_to_include) {
 		exit();
 	}
 
-	// include_once APP_ROOT . "/$path_to_include";
 	view($path_to_include);
 	exit();
 }

@@ -38,12 +38,21 @@ function getYear() {
 function view($view, $data = []) {
 	extract($data);
 
-	$components = require 'components.php';
-	foreach($components as $name => $path) {
-
+	
+	require 'components.php';
+	foreach($components as $component => $path) {
+		
 	}
 	
-	include APP_ROOT . '/views/' . $view . '.php';
+	ob_start();
+	include APP_ROOT . "/views/" . $view . '.php';
+	$content = ob_get_clean();
+	include APP_ROOT . '/views/layouts/' . $GLOBALS['globals']['LAYOUT'] . ".php";
+}
+
+// LOAD LAYOUT
+function layout($name) {
+	$GLOBALS['globals']['LAYOUT'] = $name;
 }
 
 // DATABASE
