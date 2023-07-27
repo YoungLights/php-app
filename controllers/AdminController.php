@@ -8,4 +8,9 @@ class AdminController
 	{
 		echo 'hello world';
 	}
+
+	public function login()
+	{
+		view('admin/login');
+	}
 }

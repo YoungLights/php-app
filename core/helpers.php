@@ -44,10 +44,14 @@ function view($view, $data = []) {
 		
 	}
 	
-	ob_start();
-	include APP_ROOT . "/views/" . $view . '.php';
-	$content = ob_get_clean();
-	include APP_ROOT . '/views/layouts/' . $GLOBALS['globals']['LAYOUT'] . ".php";
+	if(!is_array($view)) {
+		ob_start();
+		include APP_ROOT . "/views/" . $view . '.php';
+		$content = ob_get_clean();
+		include APP_ROOT . '/views/layouts/' . $GLOBALS['globals']['LAYOUT'] . ".php";
+	} else {
+		echo "<h2>There went something wrong</h2><p>No such method in your controller</p>";
+	}
 }
 
 // LOAD LAYOUT

@@ -23,13 +23,15 @@ function route($route, $path_to_include, $auth) {
 		if(isset($_SESSION['admin'])) {
 			dd('yes');
 		} else {
-			dd('not allowed');
+			dd($auth);
 		}
 	}
 
 	if (!is_callable($callback)) {
-		if (!strpos($path_to_include, '.html')) {
-			$path_to_include;
+		if(!is_array($path_to_include)) {
+			if (!strpos($path_to_include, '.html')) {
+				$path_to_include;
+			}
 		}
 	}
 

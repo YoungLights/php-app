@@ -12,6 +12,7 @@
 			<a href="/">Welcome</a>
 			<a href="/mon-coeur">Buhu</a>
 			<a href="/articles">Articles</a>
+			<a href="/login">Login</a>
 		</nav>
 		<?= $content ?>
 	</main>
