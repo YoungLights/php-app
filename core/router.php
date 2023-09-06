@@ -19,14 +19,6 @@ function any($route, $path_to_include, $auth = false){route($route, $path_to_inc
 function route($route, $path_to_include, $auth) {
 	$callback = $path_to_include;
 
-	if($auth) {
-		if(isset($_SESSION['admin'])) {
-			dd('yes');
-		} else {
-			dd($auth);
-		}
-	}
-
 	if (!is_callable($callback)) {
 		if(!is_array($path_to_include)) {
 			if (!strpos($path_to_include, '.html')) {
@@ -75,6 +67,13 @@ function route($route, $path_to_include, $auth) {
 	}
 
 	if (is_callable($callback)) {
+		if($auth) {
+			if(isset($_SESSION['admin'])) {
+				dd('hey admin');
+			} else {
+				dd('you are not authorized');
+			}
+		}
 		call_user_func_array($callback, $parameters);
 		exit();
 	}

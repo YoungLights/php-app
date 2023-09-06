@@ -59,6 +59,11 @@ function layout($name) {
 	$GLOBALS['globals']['LAYOUT'] = $name;
 }
 
+// LOAD TEMPLATE
+function template($name) {
+	include 'views/templates/' . $name . '.php'; 
+}
+
 // DATABASE
 function all($query) {
 	$db = new Database();

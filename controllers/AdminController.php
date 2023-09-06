@@ -6,11 +6,16 @@ class AdminController
 {
 	public function index()
 	{
-		echo 'hello world';
+		view('admin/login');
 	}
 
 	public function login()
 	{
-		view('admin/login');
+		dd('login');
+	}
+
+	public function logout()
+	{
+		dd('logout');
 	}
 }

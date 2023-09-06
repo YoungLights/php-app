@@ -1,3 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=Montserrat:wght@300;400;600;800&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 100%;
+  font-family: "Montserrat", sans-serif;
+}
 
+a {
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+input, select, textarea {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+}
+
+.form input, .form textarea, .form select, .form button {
+  padding: 10px;
+  border: solid 1px #b4b7d1;
+  border-radius: 5px;
+  width: 100%;
+}
+.form label {
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.form-item + .form-item {
+  margin-top: 15px;
+}
+
+.login {
+  background: #0a0b14;
+  position: relative;
+  height: 100vh;
+  padding: 100px;
+}
+
+.login-bg {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center center;
+  height: 100%;
+  width: 100%;
+  opacity: 0.2;
+}
+
+.login-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+  gap: 50px;
+}
+
+.login-form {
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 30px;
+  width: 400px;
+}
+.login-form h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.login-logo img {
+  width: 200px;
+}
 
 /*# sourceMappingURL=admin.css.map */
